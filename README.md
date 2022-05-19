@@ -22,3 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+# SELECT "relationships".* 
+# FROM "relationships" 
+# WHERE "relationships"."follower_id" = $1 /* loading for inspect */ LIMIT $2 
+
+# SELECT "users".* 
+# FROM "users" 
+# INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" 
+# WHERE "relationships"."follower_id" = $1 /* loading for inspect */ LIMIT $2
